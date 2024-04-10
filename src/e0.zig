@@ -1,4 +1,5 @@
 const std = @import("std");
+const log = @import("log.zig");
 const expect = @import("std").testing.expect;
 
 pub fn run() !void {
@@ -10,13 +11,18 @@ pub fn run() !void {
     try stdout.print("A number please: \n", .{});
 
     stdin.streamUntilDelimiter(arr.writer(), '\n', arr.capacity()) catch |err| {
-        return std.debug.print("{}", .{err});
+        return log.throw(@src(), "{}", .{err});
     };
+
+    try stdout.print("\n{}\n", .{arr});
+    @memset(&arr.buffer, 0);
+    std.mem.copy(u8, &arr.buffer, "33");
+    try stdout.print("\n{}\n\n", .{arr});
 
     try stdout.print("{s}\n", .{&arr.buffer});
 
-    var a = std.fmt.parseUnsigned(i32, &arr.buffer, 0) catch |err| {
-        return std.debug.print("{s}:{d} -> {}\n", .{ @src().file, @src().line, err });
+    var a = std.fmt.parseInt(i32, &arr.buffer, 0) catch |err| {
+        return log.throw(@src(), "{}", .{err});
     };
 
     try stdout.print("Your number: {d}\n", .{a});
