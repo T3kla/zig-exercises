@@ -1,6 +1,8 @@
 const std = @import("std");
 const expect = @import("std").testing.expect;
-const e0 = @import("e0.zig");
+const e00 = @import("e00.zig");
+const e01 = @import("e01.zig");
+const e02 = @import("e02.zig");
 
 pub fn main() !void {
     //     // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
@@ -17,10 +19,9 @@ pub fn main() !void {
 
     //     try bw.flush(); // don't forget to flush!
 
-    try e0.run();
+    // try e00.run();
+    try e01.run();
+    // try e02.run();
 }
 
-test "all" {
-    const x = e0.fibonacci(10);
-    try expect(x == 55);
-}
+test "all" {}
