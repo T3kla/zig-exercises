@@ -20,8 +20,8 @@ pub fn main() !void {
     //     try bw.flush(); // don't forget to flush!
 
     // try e00.run();
-    try e01.run();
-    // try e02.run();
+    // try e01.run();
+    try e02.run();
 }
 
 test "all" {}

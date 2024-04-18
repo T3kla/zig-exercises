@@ -1,6 +1,5 @@
 const std = @import("std");
 const throw = @import("log.zig");
-const expect = @import("std").testing.expect;
 
 // Given an int, return each u8 that compose it as binary
 // Make it generic

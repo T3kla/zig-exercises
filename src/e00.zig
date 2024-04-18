@@ -1,6 +1,5 @@
 const std = @import("std");
 const throw = @import("log.zig");
-const expect = @import("std").testing.expect;
 
 // Request user for two numbers and return their addition
 
