@@ -18,7 +18,7 @@ pub fn run() !void {
     };
     //      std.debug.print("\n{}\n", .{arr});
 
-    var a = std.fmt.parseInt(i32, arr.buffer[0 .. arr.len - 1], 0) catch |err| {
+    const a = std.fmt.parseInt(i32, arr.buffer[0 .. arr.len - 1], 0) catch |err| {
         return throw.throw(@src(), "{}", .{err});
     };
 
@@ -38,7 +38,7 @@ pub fn run() !void {
     };
     //      std.debug.print("\n{}\n", .{arr});
 
-    var b = std.fmt.parseInt(i32, arr.buffer[0 .. arr.len - 1], 0) catch |err| {
+    const b = std.fmt.parseInt(i32, arr.buffer[0 .. arr.len - 1], 0) catch |err| {
         return throw.throw(@src(), "{}", .{err});
     };
 

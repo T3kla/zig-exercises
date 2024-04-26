@@ -61,7 +61,7 @@ fn biggestGeneric(comptime T: type, x: *const T) !void {
     var b: u8 = 0;
 
     for (0..s) |index| {
-        var c = y[index];
+        const c = y[index];
 
         if (b < c)
             b = c;
